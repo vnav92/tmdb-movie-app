@@ -27,7 +27,7 @@ describe('MovieDetails', () => {
     expect(screen.getByRole('img')).toHaveAttribute(
       'src',
       getImageSrc(MOVIE_DETAILS_FIXURE.poster_path),
-    )
+    );
     expect(screen.getByText(MOVIE_DETAILS_FIXURE.title)).toBeInTheDocument();
     expect(
       screen.getByText(MOVIE_DETAILS_FIXURE.genres[0].name),
@@ -42,13 +42,17 @@ describe('MovieDetails', () => {
       screen.getByText(MOVIE_DETAILS_FIXURE.vote_average.toFixed(1)),
     ).toBeInTheDocument();
     expect(screen.getByText(MOVIE_DETAILS_FIXURE.overview)).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: translations['movieDetails.backToListLink']})).toHaveAttribute('href', '/')
+    expect(
+      screen.getByRole('link', {
+        name: translations['movieDetails.backToListLink'],
+      }),
+    ).toHaveAttribute('href', '/');
   });
 
   it('should render loading state', () => {
     vi.spyOn(movieDetailsApi, 'useMovieDetails').mockReturnValue({
       data: {},
-      isLoading: true
+      isLoading: true,
     } as unknown as ReturnType<typeof movieDetailsApi.useMovieDetails>);
 
     render(
@@ -57,32 +61,31 @@ describe('MovieDetails', () => {
       </MainProvider>,
     );
 
-        expect(
+    expect(
       screen.getByLabelText(translations['global.loading']),
     ).toBeInTheDocument();
-        })
+  });
 
-    it('should redner error', () => {
-      const MOCK_ERROR = 'mock-error';
+  it('should redner error', () => {
+    const MOCK_ERROR = 'mock-error';
 
-          vi.spyOn(movieDetailsApi, 'useMovieDetails').mockReturnValue({
-            data: [],
-            error: {
-              response: {
-                data: {
-                  status_message: MOCK_ERROR,
-                },
-              },
-            },
-          } as unknown as ReturnType<typeof movieDetailsApi.useMovieDetails>);
+    vi.spyOn(movieDetailsApi, 'useMovieDetails').mockReturnValue({
+      data: [],
+      error: {
+        response: {
+          data: {
+            status_message: MOCK_ERROR,
+          },
+        },
+      },
+    } as unknown as ReturnType<typeof movieDetailsApi.useMovieDetails>);
 
-              render(
+    render(
       <MainProvider>
         <MovieDetails />
       </MainProvider>,
     );
 
-
-          expect(screen.getByText(MOCK_ERROR)).toBeInTheDocument();
-  })
-})
+    expect(screen.getByText(MOCK_ERROR)).toBeInTheDocument();
+  });
+});

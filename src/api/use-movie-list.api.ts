@@ -14,34 +14,39 @@ const REQUEST_PARAMS = {
   sort_by: 'popularity.desc',
 };
 
-const getPopularMovieList = () =>
+const getPopularMovieList = (pageNumber: number) =>
   api
     .get<MovieListResultsResponse>(ApiPath.MOVIE_LIST, {
       params: {
         ...requestDefaultParams,
         ...REQUEST_PARAMS,
+        page: pageNumber,
       },
     })
     .then(({ data }) => data);
 
-const getSearchedMovieList = (query: string) =>
+const getSearchedMovieList = (query: string, pageNumber: number) =>
   api
     .get<MovieListResultsResponse>(ApiPath.SEARCH, {
       params: {
         ...requestDefaultParams,
         query,
+        page: pageNumber,
       },
     })
     .then(({ data }) => data);
 
-export const useMovieList = (movieSearchValue?: string) => {
+export const useMovieList = (
+  movieSearchValue: string = '',
+  pageNumber: number,
+) => {
   const [debouncedValue] = useDebounce(movieSearchValue, 500);
 
   return useQuery<MovieListResultsResponse, ResponseError>({
-    queryKey: [MOVIE_LIST_QUERY_KEY, debouncedValue],
+    queryKey: [MOVIE_LIST_QUERY_KEY, debouncedValue, pageNumber],
     queryFn: () =>
       debouncedValue
-        ? getSearchedMovieList(debouncedValue)
-        : getPopularMovieList(),
+        ? getSearchedMovieList(debouncedValue, pageNumber)
+        : getPopularMovieList(pageNumber),
   });
 };
