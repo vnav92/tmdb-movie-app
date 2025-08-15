@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom';
+import { useIntl } from 'react-intl';
+import { FaArrowLeft } from 'react-icons/fa';
 
 import { useMovieDetails } from '../../api';
 import {
@@ -11,12 +13,10 @@ import {
 
 import styles from './movie-details.module.scss';
 import { getImageSrc } from '../../shared';
-import { useIntl } from 'react-intl';
 import { FaCalendarAlt, FaRegClock } from 'react-icons/fa';
 import { MdOutlineLanguage } from 'react-icons/md';
 import { MovieRating } from '../../components/movie-rating';
 import { Link } from '../../components/link';
-import { FaArrowLeft } from 'react-icons/fa';
 
 const parseMinutesToTime = (numberOfMinutes: number) => {
   const hours = Math.floor(numberOfMinutes / 60);

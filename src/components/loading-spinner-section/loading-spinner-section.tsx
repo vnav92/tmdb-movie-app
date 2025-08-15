@@ -1,5 +1,5 @@
-import Spinner from 'react-bootstrap/Spinner';
 import { useIntl } from 'react-intl';
+import Spinner from 'react-bootstrap/Spinner';
 
 import styles from './loading-spinner-section.module.scss';
 

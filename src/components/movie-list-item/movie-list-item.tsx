@@ -1,8 +1,9 @@
 import { useIntl } from 'react-intl';
+import { FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
+
 import styles from './movie-list-item.module.scss';
 import { SectionHeader } from '../section-header';
 
-import { FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
 
 import { MovieRating } from '../movie-rating';
 import { Link } from '../link';

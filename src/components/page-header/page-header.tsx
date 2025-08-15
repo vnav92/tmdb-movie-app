@@ -1,11 +1,11 @@
 import { TbMovie } from 'react-icons/tb';
+import { FaSearch } from 'react-icons/fa';
+import { useIntl } from 'react-intl';
 
 import styles from './page-header.module.scss';
-import { useIntl } from 'react-intl';
 import { Form } from 'react-bootstrap';
 import { TextInput } from '../text-input';
 
-import { FaSearch } from 'react-icons/fa';
 
 type PageHeaderProps =
   | { hasInput?: never }
