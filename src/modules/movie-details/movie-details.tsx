@@ -82,9 +82,11 @@ export const MovieDetails: React.FC = () => {
               </div>
               <hr className={styles.separator} />
               {movieDetails?.spoken_languages?.[0]?.english_name && (
-                <div className={styles.movieDetailsInformationItem}>
-                  <MdOutlineLanguage />
-                  {movieDetails?.spoken_languages?.[0]?.english_name}
+                <div>
+                  <div className={styles.movieDetailsInformationItem}>
+                    <MdOutlineLanguage />
+                    {movieDetails?.spoken_languages?.[0]?.english_name}
+                  </div>
                   <hr className={styles.separator} />
                 </div>
               )}

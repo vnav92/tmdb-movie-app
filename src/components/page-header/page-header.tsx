@@ -6,7 +6,6 @@ import styles from './page-header.module.scss';
 import { Form } from 'react-bootstrap';
 import { TextInput } from '../text-input';
 
-
 type PageHeaderProps =
   | { hasInput?: never }
   | {
