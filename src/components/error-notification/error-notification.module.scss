@@ -1,0 +1,14 @@
+@import '../../shared/styles/variables.scss';
+
+$error-color: #d7263d;
+
+.errorNotification {
+  border: 2px solid $error-color;
+  color: $error-color;
+  padding: 2rem;
+  border-radius: $default-border-radius;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}

@@ -1,0 +1,53 @@
+@import '../../shared/styles/variables.scss';
+
+.movieListItem {
+  width: 100%;
+  padding: $default-padding;
+  border-radius: $default-border-radius;
+  background: $background-color-secondary;
+  display: flex;
+  gap: 1rem;
+}
+
+.movieListItemImage {
+  width: 40%;
+  border-radius: $default-border-radius;
+}
+
+.moviwListItemInformationWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movieListItemInformationWrapperTitle {
+  font-size: 1.75rem;
+}
+
+.movieListItemInformationWrapperReleaseDate {
+  display: flex;
+  gap: 0.375rem;
+  align-items: center;
+}
+
+.moviwListItemInformationWrapperMain {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.movieListItemInformationLinkWrapper {
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  .movieListItem {
+    flex-direction: column;
+  }
+
+  .movieListItemImage {
+    width: 100%;
+  }
+}

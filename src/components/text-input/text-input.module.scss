@@ -1,0 +1,26 @@
+@import '../../shared/styles/variables.scss';
+
+.textInputWrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.textInput {
+  background: $background-color-secondary;
+  border-width: 0;
+  padding: 0.5rem;
+  color: $text-color-primary;
+  border-radius: $default-border-radius;
+  font-size: 1.125rem;
+  font-family: $primary-font-family;
+
+  &::placeholder {
+    color: $text-color-secondary;
+    font-weight: 200;
+  }
+
+  &:focus {
+    outline: 2px solid rgba($text-color-primary, 0.5);
+  }
+}

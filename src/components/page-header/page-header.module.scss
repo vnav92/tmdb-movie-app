@@ -1,0 +1,34 @@
+@import '../../shared/styles/variables.scss';
+
+.pageHeaderWrapper {
+  max-width: $page-layout-wrapper-content-max-width;
+  padding: $default-padding 0;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.5rem;
+  border-bottom: 2px solid $background-color-secondary;
+}
+
+.pageHeaderAppName {
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.textInputAddon {
+  color: $text-color-secondary;
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+  .pageHeaderWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pageHeaderAppName {
+    font-size: 1.25rem;
+  }
+}

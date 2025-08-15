@@ -1,4 +1,4 @@
-type MovieListResultsResponseItem = {
+export type MovieListResultsResponseItem = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];

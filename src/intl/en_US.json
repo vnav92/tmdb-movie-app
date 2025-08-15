@@ -1,3 +1,12 @@
 {
-  "test": "it's working!"
+  "global.appName": "TMDB Movie App",
+  "global.loading": "Loading content",
+  "textInput.ariaLabel": "Search movie input",
+  "textInput.placeholder": "Search movies...",
+  "movieList.sectionHeader.popularMovies": "Popular movies",
+  "movieList.sectionHeader.searchResults": "Search results",
+  "movieListItem.posterAltText": "{movieTitle} poster image",
+  "movieListItem.seeDetailsButton": "See details",
+  "movieDetails.time": "{time}h",
+  "movieDetails.backToListLink": "Back to list"
 }

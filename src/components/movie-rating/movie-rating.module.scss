@@ -1,0 +1,18 @@
+$movie-rating-icon-color: #eeb902;
+
+.movieRating {
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-variant-numeric: tabular-nums;
+  color: $movie-rating-icon-color;
+  background: rgba($movie-rating-icon-color, 0.1);
+  width: fit-content;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.movieRatingIcon {
+  color: $movie-rating-icon-color;
+}

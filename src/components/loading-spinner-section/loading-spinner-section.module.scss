@@ -1,0 +1,13 @@
+@import '../../shared/styles/variables.scss';
+
+.loadingSpinnerSectionWrapper {
+  // width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  color: $text-color-primary;
+}

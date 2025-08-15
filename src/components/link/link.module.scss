@@ -1,0 +1,28 @@
+@import '../../shared/styles/variables.scss';
+
+.link {
+  color: $text-color-primary;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 0.5rem 1rem;
+  letter-spacing: 1px;
+  display: inline-block;
+  background: $background-color;
+  border-radius: $default-border-radius;
+  font-family: $primary-font-family;
+  transition: background $transition-time;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background: rgba($background-color, 0.5);
+  }
+
+  &:focus {
+    outline: 1px solid $text-color-primary;
+  }
+}
