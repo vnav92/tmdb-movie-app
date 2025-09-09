@@ -23,6 +23,15 @@
   gap: 0.5rem;
 }
 
+.movieListViewConfigurationSection {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.movieListViewConfigurationSectionButton {
+  cursor: pointer;
+}
+
 .paginationButton {
   background: transparent;
   border: 1px solid $text-color-primary;

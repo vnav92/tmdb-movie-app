@@ -5,6 +5,7 @@ import {
   api,
   ApiPath,
   requestDefaultParams,
+  type ListVariant,
   type MovieListResultsResponse,
   type ResponseError,
 } from '../shared';
@@ -14,9 +15,8 @@ const REQUEST_PARAMS = {
   sort_by: 'popularity.desc',
 };
 
-const getPopularMovieList = (pageNumber: number) =>
-  api
-    .get<MovieListResultsResponse>(ApiPath.MOVIE_LIST, {
+const getMovieList = (pageNumber: number, listVariant: ListVariant) => api
+    .get<MovieListResultsResponse>(listVariant === 'popular' ? ApiPath.MOVIE_LIST : ApiPath.MOVIE_LIST_TOP_RATED, {
       params: {
         ...requestDefaultParams,
         ...REQUEST_PARAMS,
@@ -39,14 +39,15 @@ const getSearchedMovieList = (query: string, pageNumber: number) =>
 export const useMovieList = (
   movieSearchValue: string = '',
   pageNumber: number,
+  listVariant: ListVariant
 ) => {
   const [debouncedValue] = useDebounce(movieSearchValue, 500);
 
   return useQuery<MovieListResultsResponse, ResponseError>({
-    queryKey: [MOVIE_LIST_QUERY_KEY, debouncedValue, pageNumber],
+    queryKey: [MOVIE_LIST_QUERY_KEY, debouncedValue, pageNumber, listVariant],
     queryFn: () =>
       debouncedValue
         ? getSearchedMovieList(debouncedValue, pageNumber)
-        : getPopularMovieList(pageNumber),
+        : getMovieList(pageNumber, listVariant),
   });
 };

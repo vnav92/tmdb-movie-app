@@ -18,12 +18,10 @@ const queryClient = new QueryClient({
   },
 });
 
-export const MainProvider: React.FC<MainProviderProps> = ({ children }) => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
-        <BrowserRouter>{children}</BrowserRouter>
-      </IntlProvider>
-    </QueryClientProvider>
-  );
-};
+export const MainProvider: React.FC<MainProviderProps> = ({ children }) => (
+  <QueryClientProvider client={queryClient}>
+    <IntlProvider locale={DEFAULT_LOCALE} messages={messages}>
+      <BrowserRouter>{children}</BrowserRouter>
+    </IntlProvider>
+  </QueryClientProvider>
+);
